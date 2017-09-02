@@ -1,5 +1,6 @@
 #coding:utf-8
 import os
+import subprocess
 wifilist = []
 def runcmd(cmd):
     cmd = cmd
@@ -28,7 +29,11 @@ if __name__ == '__main__':
     a = int(a)
     cmd = 'wpa_passphrase %s > /etc/wpa_supplicant.conf' % (wifilist[a])
     print cmd
-    runcmd(cmd)
+    pipe = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    pipe.stdin.write(raw_input('password'))
+    pipe.stdin.flush()
+    out = pipe.stdout.read()
+    print out
     cmd = 'wpa_supplicant -i wlan1 -c /etc/wpa_supplicant.conf'
     runcmd(cmd)
 
