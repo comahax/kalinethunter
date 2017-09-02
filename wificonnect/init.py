@@ -4,9 +4,14 @@ import os
 def runcmd(cmd):
     cmd = cmd
     output = os.popen(cmd)
+    print output.readlines()
+
+def runcmd1(cmd):
+    cmd = cmd
+    output = os.popen(cmd)
     for l in output.readlines():
-        print '*****'
-        print l
+        if 'ESSID' in l:
+            print l
 
 
 if __name__ == '__main__':
@@ -15,5 +20,5 @@ if __name__ == '__main__':
     runcmd(cmd)
     print '搜索附近wifi'
     cmd = 'iwlist wlan1 scan'
-    runcmd(cmd)
+    runcmd1(cmd)
 
