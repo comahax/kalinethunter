@@ -29,6 +29,8 @@ if __name__ == '__main__':
     a = int(a)
     cmd = "rm /etc/wpa_supplicant.conf"
     runcmd(cmd)
+    cmd = "touch /etc/wpa_supplicant.conf"
+    runcmd(cmd)
     cmd = 'wpa_passphrase %s >> /etc/wpa_supplicant.conf' % (wifilist[a])
     print cmd
     pipe = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
