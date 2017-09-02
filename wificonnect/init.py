@@ -41,9 +41,9 @@ if __name__ == '__main__':
     inn = raw_input('password')
     pipe.stdin.write(inn)
     pipe.stdin.flush()
-    time.sleep(2)
-    out = pipe.stdout.read()
-    print out
+    #time.sleep(2)
+    #out = pipe.stdout.read()
+    #print out
     file = "/etc/wpa_supplicant.conf"
     with open(file,'w') as f:
         f.write(out)
