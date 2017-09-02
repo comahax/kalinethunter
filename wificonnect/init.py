@@ -16,6 +16,7 @@ def runcmd1(cmd):
         if 'ESSID' in l:
             print str(number)+":"+l
             wifilist.append(l.split(':')[1])
+            number+1
 
 
 if __name__ == '__main__':
@@ -26,8 +27,8 @@ if __name__ == '__main__':
     cmd = 'iwlist wlan1 scan'
     runcmd1(cmd)
     print '输入你要连接的wifi编号'
-    a = raw_input('please input the wifi number which you want to connect')
-    a = int(a)
+    a = raw_input('please input the wifi number which you want to connect\n')
+    a = int(a.strip())
     cmd = "rm /etc/wpa_supplicant.conf"
     runcmd(cmd)
     cmd = "touch /etc/wpa_supplicant.conf"
@@ -52,6 +53,8 @@ if __name__ == '__main__':
     with open(file,'w') as f:
         f.write(out)
     cmd = 'wpa_supplicant -i wlan1 -c /etc/wpa_supplicant.conf'
+    runcmd(cmd)
+    cmd = 'dhclient wlan1'
     runcmd(cmd)
 
 
