@@ -32,7 +32,7 @@ if __name__ == '__main__':
     runcmd(cmd)
     cmd = "touch /etc/wpa_supplicant.conf"
     runcmd(cmd)
-    cmd = 'wpa_passphrase %s' % (wifilist[a])
+    cmd = 'wpa_passphrase' + wifilist[a])
     print cmd
     pipe = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     pipe.stdin.write(raw_input('password'))
