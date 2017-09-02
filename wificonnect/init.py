@@ -4,7 +4,9 @@ import os
 def runcmd(cmd):
     cmd = cmd
     output = os.popen(cmd)
-    print output.readlines()
+    for l in output.readlines():
+        print '*****'
+        print l
 
 
 if __name__ == '__main__':
