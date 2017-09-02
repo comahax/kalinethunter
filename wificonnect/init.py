@@ -36,7 +36,7 @@ if __name__ == '__main__':
     #cmd = "ls"
     cmdlist = []
     cmdlist.append(cmd)
-    cmdlist.append(wifilist[a])
+    cmdlist.append(wifilist[a].strip()[1:-1])
     inn = raw_input('password\n')
     cmdlist.append(inn)
 
