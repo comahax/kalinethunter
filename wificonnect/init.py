@@ -4,7 +4,7 @@ import os
 def runcmd(cmd):
     cmd = cmd
     output = os.popen(cmd)
-    print output
+    print output.readlines()
 
 
 if __name__ == '__main__':
