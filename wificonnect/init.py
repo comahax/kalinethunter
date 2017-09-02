@@ -34,8 +34,10 @@ if __name__ == '__main__':
     runcmd(cmd)
     cmd = '/usr/bin/wpa_passphrase'
     #cmd = "ls"
-    print cmd
-    pipe = subprocess.Popen(cmd, wifilist[a], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    cmdlist = []
+    cmdlist.append(cmd)
+    cmdlist.append(wifilist[a])
+    pipe = subprocess.Popen(cmdlist, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     inn = raw_input('password')
     pipe.stdin.write(inn)
     pipe.stdin.flush()
