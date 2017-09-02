@@ -39,18 +39,18 @@ if __name__ == '__main__':
     cmdlist.append(wifilist[a])
     inn = raw_input('password\n')
     cmdlist.append(inn)
-    cmdlist.append('>>')
-    cmdlist.append('/etc/wpa_supplicant.conf')
+
     pipe = subprocess.Popen(cmdlist, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     #pipe.stdin.write(inn)
     #pipe.stdin.flush()
 
-    #out = pipe.stdout.readlines()
-    #print out
-    #file = "/etc/wpa_supplicant.conf"
-    #with open(file,'w') as f:
-    #    f.write(out)
+    out = pipe.stdout.eadlines()
+    print out
+    print type(out)
+    file = "/etc/wpa_supplicant.conf"
+    with open(file,'w') as f:
+        f.write(out)
     cmd = 'wpa_supplicant -i wlan1 -c /etc/wpa_supplicant.conf'
     runcmd(cmd)
 
