@@ -36,7 +36,8 @@ if __name__ == '__main__':
     #cmd = "ls"
     print cmd
     pipe = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    pipe.stdin.write(raw_input('password'))
+    in = raw_input('password')
+    pipe.stdin.write(in)
     pipe.stdin.flush()
     time.sleep(2)
     out = pipe.stdout.read()
