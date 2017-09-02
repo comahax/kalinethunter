@@ -27,7 +27,9 @@ if __name__ == '__main__':
     print '输入你要连接的wifi编号'
     a = raw_input('please input the wifi number which you want to connect')
     a = int(a)
-    cmd = 'wpa_passphrase %s > /etc/wpa_supplicant.conf' % (wifilist[a])
+    cmd = "rm /etc/wpa_supplicant.conf"
+    runcmd(cmd)
+    cmd = 'wpa_passphrase %s >> /etc/wpa_supplicant.conf' % (wifilist[a])
     print cmd
     pipe = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     pipe.stdin.write(raw_input('password'))
