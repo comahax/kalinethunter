@@ -20,6 +20,9 @@ def runcmd1(cmd):
 
 
 if __name__ == '__main__':
+    print '关闭wlan1'
+    cmd = 'ifconfig wlan1 down'
+    runcmd(cmd)
     print '开启wlan1'
     cmd = 'ifconfig wlan1 up'
     runcmd(cmd)
