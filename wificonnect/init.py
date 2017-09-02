@@ -45,7 +45,7 @@ if __name__ == '__main__':
     #pipe.stdin.write(inn)
     #pipe.stdin.flush()
 
-    out = pipe.stdout.eadlines()
+    out = pipe.stdout.read()
     print out
     print type(out)
     file = "/etc/wpa_supplicant.conf"
