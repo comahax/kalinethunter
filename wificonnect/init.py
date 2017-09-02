@@ -55,10 +55,9 @@ if __name__ == '__main__':
     file = "/etc/wpa_supplicant.conf"
     with open(file,'w') as f:
         f.write(out)
-    cmd = 'wpa_supplicant -B -i wlan1 -c /etc/wpa_supplicant.conf'
+    cmd = 'wpa_supplicant  -i wlan1 -c /etc/wpa_supplicant.conf'
     runcmd(cmd)
     cmd = 'dhclient wlan1'
     runcmd(cmd)
-
 
 
